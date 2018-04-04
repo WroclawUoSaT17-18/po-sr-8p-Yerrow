@@ -79,17 +79,23 @@ namespace Game1
                 _currentTestObject.Position.X += 120f * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (_currentTestObject.Position.X > GraphicsDevice.Viewport.Width)
                     _currentTestObject.Position.X = -260f;
-            }else if (state.IsKeyDown(Keys.Left))
+            }
+
+            if (state.IsKeyDown(Keys.Left))
             {
                 _currentTestObject.Position.X -= 120f * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (_currentTestObject.Position.X < -260f)
                     _currentTestObject.Position.X = GraphicsDevice.Viewport.Width;
-            }else if (state.IsKeyDown(Keys.Up))
+            }
+
+            if (state.IsKeyDown(Keys.Up))
             {
                 _currentTestObject.Position.Y -= 120f * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (_currentTestObject.Position.Y < -350f)
                     _currentTestObject.Position.Y = GraphicsDevice.Viewport.Height - 80f;
-            }else if (state.IsKeyDown(Keys.Down))
+            }
+
+            if (state.IsKeyDown(Keys.Down))
             {
                 _currentTestObject.Position.Y += 120f * (float)gameTime.ElapsedGameTime.TotalSeconds;
                 if (_currentTestObject.Position.Y > GraphicsDevice.Viewport.Height -80f)
