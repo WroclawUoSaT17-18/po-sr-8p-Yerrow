@@ -48,7 +48,7 @@ namespace Game1
             // Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
-            _currentTestObject = XmlManager.Load<TestObject>() ?? new TestObject()
+            _currentTestObject = SaveManager.Load<TestObject>() ?? new TestObject()
             {
                 Position = new Vector2(GraphicsDevice.Viewport.Width / 2f - 150f,
                     GraphicsDevice.Viewport.Height / 2f - 210f)
@@ -63,7 +63,7 @@ namespace Game1
         {
             // TODO: Unload any non ContentManager content here
             //texture.Dispose();
-            XmlManager.Save(_currentTestObject);
+            SaveManager.Save(_currentTestObject);
         }
 
         protected override void Update(GameTime gameTime)
