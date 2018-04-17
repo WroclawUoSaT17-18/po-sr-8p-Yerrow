@@ -23,26 +23,28 @@ namespace Game1
 
         protected override void OnActivated(object sender, EventArgs args)
         {
-            Window.Title = "Active App";
+            Window.Title = "Active";
             base.OnActivated(sender, args);
         }
 
         protected override void OnDeactivated(object sender, EventArgs args)
         {
-            Window.Title = "Unactive App";
+            Window.Title = "Unactive";
             base.OnDeactivated(sender, args);
         }
 
         protected override void Initialize()
         {
             // TODO: Add your initialization logic here
-
+            _graphics.PreferredBackBufferWidth = (int) ScreenManager.Instance.Dimensions.X;
+            _graphics.PreferredBackBufferHeight = (int) ScreenManager.Instance.Dimensions.Y;
+            _graphics.ApplyChanges();
             base.Initialize();
         }
 
         protected override void LoadContent()
         {
-            // Create a new SpriteBatch, which can be used to draw textures.
+            /*// Create a new SpriteBatch, which can be used to draw textures.
             _spriteBatch = new SpriteBatch(GraphicsDevice);
 
             _currentTestObject = SaveManager.Load<TestObject>() ?? new TestObject()
@@ -52,7 +54,9 @@ namespace Game1
             };
 
             _currentTestObject.Texture = Content.Load<Texture2D>("pogpng");
-
+            */
+            _spriteBatch = new SpriteBatch(GraphicsDevice);
+            ScreenManager.Instance.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
 
@@ -60,11 +64,13 @@ namespace Game1
         {
             // TODO: Unload any non ContentManager content here
             //texture.Dispose();
-            SaveManager.Save(_currentTestObject);
+            //SaveManager.Save(_currentTestObject);
+            ScreenManager.Instance.UnloadContent();
         }
 
         protected override void Update(GameTime gameTime)
         {
+            /*
             if (!IsActive) return;
             var state = Keyboard.GetState();
             // TODO: Add your update logic here
@@ -101,14 +107,19 @@ namespace Game1
                 if (_currentTestObject.Position.Y > GraphicsDevice.Viewport.Height -80f)
                     _currentTestObject.Position.Y = -350f;
             }
-
+            */
+            if (Keyboard.GetState().IsKeyDown(Keys.Escape))
+            {
+                Exit();
+            }
+            ScreenManager.Instance.Update(gameTime);
             base.Update(gameTime);
         }
 
         protected override void Draw(GameTime gameTime)
         {
             GraphicsDevice.Clear(Color.Teal);
-            var status = Keyboard.GetState();
+            /*var status = Keyboard.GetState();
 
             // TODO: Add your drawing code here
             var fps = 1 / gameTime.ElapsedGameTime.TotalSeconds;
@@ -124,7 +135,9 @@ namespace Game1
             }
 
             _spriteBatch.End();
-
+            
+            */
+            ScreenManager.Instance.Draw(_spriteBatch);
             base.Draw(gameTime);
         }
     }
