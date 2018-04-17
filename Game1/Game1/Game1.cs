@@ -51,7 +51,7 @@ namespace Game1
                     GraphicsDevice.Viewport.Height / 2f - 210f)
             };
 
-            _currentTestObject.Texture = Content.Load<Texture2D>("logo");
+            _currentTestObject.Texture = Content.Load<Texture2D>("pogpng");
 
             // TODO: use this.Content to load your game content here
         }
