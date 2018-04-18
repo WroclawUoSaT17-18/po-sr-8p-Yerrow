@@ -1,47 +1,31 @@
-﻿using System.Xml.Serialization;
+﻿using System;
+using System.Xml.Serialization;
 using System.IO;
-using System.Reflection;
 
 namespace Game1
 {
-    public class SaveManager
+    public class SaveManager<T>
     {
-        private static readonly string SavePath;
+        public Type Type;
 
-        //Sets the full path to the file for serialization
-        static SaveManager()
+        public T Load(string path)
         {
-            //get the location of the folder where the program's .exe file is running from
-            var path = Path.GetDirectoryName(Assembly.GetExecutingAssembly().Location);
-
-            //find out where the savegame xml file would be if it exists
-           SavePath = Path.Combine(path, "save.xml");
-        }
-
-        public static T Load<T>()
-        {
-            if (!File.Exists(SavePath))
+            T instance;
+            using (TextReader reader = new StreamReader(path))
             {
-                //just return the default value for that object type
-                return default(T);
+                var xml = new XmlSerializer(Type);
+                instance = (T)xml.Deserialize(reader);
             }
 
-            var serializer = new XmlSerializer(typeof(T));
-
-            using (var stream = File.Open(SavePath, FileMode.Open, FileAccess.Read))
-            {
-                return (T)serializer.Deserialize(stream);
-            }
-
+            return instance;
         }
-
-        public static void Save(object saveData)
+           
+        public void Save(string path, object obj)
         {
-            var xml = new XmlSerializer(saveData.GetType());
-
-            using (var stream = File.Open(SavePath, FileMode.Create, FileAccess.Write))
+            using (TextWriter writer = new StreamWriter(path))
             {
-                xml.Serialize(stream,saveData);
+                var xml = new XmlSerializer(Type);
+                xml.Serialize(writer, obj);
             }
         }
     }

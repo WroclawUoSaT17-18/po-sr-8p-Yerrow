@@ -15,13 +15,17 @@ namespace Game1
         private static ScreenManager _instance;
         public Vector2 Dimensions { private set; get; }
         public ContentManager Content { private set; get; }
-
+        SaveManager<GameScreen> xmlGameScreenManager;
+        
         GameScreen currentScreen;
 
         private ScreenManager()
         {
             Dimensions = new Vector2(640, 480);
             currentScreen = new SplashScreen();
+            xmlGameScreenManager = new SaveManager<GameScreen>();
+            xmlGameScreenManager.Type = currentScreen.Type;
+            currentScreen = xmlGameScreenManager.Load("Content/Load/SplashScreen.xml");
         }
 
         public static ScreenManager Instance
