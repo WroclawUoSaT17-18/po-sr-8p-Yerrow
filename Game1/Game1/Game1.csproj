@@ -42,6 +42,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Compile Include="GameScreen.cs" />
+    <Compile Include="Image.cs" />
     <Compile Include="ScreenManager.cs" />
     <Compile Include="SplashScreen.cs" />
     <Compile Include="TestObject.cs" />
@@ -69,6 +70,7 @@
     <None Include="app.manifest" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="Content\Fonts\" />
     <Folder Include="Content\SplashScreen\" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

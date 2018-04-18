@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
+﻿using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
@@ -13,27 +8,30 @@ namespace Game1
     public class SplashScreen : GameScreen
     {
         Texture2D image;
-        public string Path;
-
+        public Image Image;
+        
         public override void LoadContent()
         {
             Content = new ContentManager(ScreenManager.Instance.Content.ServiceProvider, "Content");
-            image = Content.Load<Texture2D>(Path);
+            Image.LoadContent();
         }
 
         public override void UnloadContent()
         {
             base.UnloadContent();
+            Image.UnloadContent();
         }
 
         public override void Update(GameTime gameTime)
         {
             base.Update(gameTime);
+            Image.Update(gameTime);
         }
 
         public override void Draw(SpriteBatch spriteBatch)
         {
-            spriteBatch.Draw(image,Vector2.Zero,Color.White); 
+            //spriteBatch.Draw(image, Vector2.Zero, Color.White); 
+            Image.Draw(spriteBatch);
         }
     }
 }
