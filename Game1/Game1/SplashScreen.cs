@@ -13,13 +13,12 @@ namespace Game1
     public class SplashScreen : GameScreen
     {
         Texture2D image;
-        string path;
+        public string Path;
 
         public override void LoadContent()
         {
             Content = new ContentManager(ScreenManager.Instance.Content.ServiceProvider, "Content");
-            path = "pogpng";
-            image = Content.Load<Texture2D>(path);
+            image = Content.Load<Texture2D>(Path);
         }
 
         public override void UnloadContent()
