@@ -56,6 +56,8 @@ namespace Game1
             _currentTestObject.Texture = Content.Load<Texture2D>("pogpng");
             */
             _spriteBatch = new SpriteBatch(GraphicsDevice);
+            ScreenManager.Instance.GraphicsDevice = GraphicsDevice;
+            ScreenManager.Instance.SpriteBatch = _spriteBatch;
             ScreenManager.Instance.LoadContent(Content);
             // TODO: use this.Content to load your game content here
         }
