@@ -118,7 +118,7 @@ namespace Game1
 
         protected override void Draw(GameTime gameTime)
         {
-            GraphicsDevice.Clear(Color.Teal);
+            GraphicsDevice.Clear(Color.Black);
             /*var status = Keyboard.GetState();
 
             // TODO: Add your drawing code here
@@ -137,7 +137,9 @@ namespace Game1
             _spriteBatch.End();
             
             */
+            _spriteBatch.Begin();
             ScreenManager.Instance.Draw(_spriteBatch);
+            _spriteBatch.End();
             base.Draw(gameTime);
         }
     }
