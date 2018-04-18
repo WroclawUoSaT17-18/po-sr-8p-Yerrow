@@ -1,10 +1,14 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <SplashScreen>
   <Image>
-    <Path>pogpng</Path>
-    <Position>
-      <X>200</X>
-      <Y>10</Y>
-    </Position>
+    <Path>SplashScreen/bg</Path>
+    <Effects>FadeEffect</Effects>
+    <IsActive>true</IsActive>
+    <Alpha>1.0</Alpha>
+    <Scale>
+      <X>1.0</X>
+      <Y>1.0</Y>
+    </Scale>
+
   </Image>
 </SplashScreen>
