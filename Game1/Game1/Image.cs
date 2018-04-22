@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Game1
+namespace TheGameProject
 {
     public class Image
     {
@@ -39,7 +36,7 @@ namespace Game1
                 var obj = this;
                 (effect as ImageEffect).LoadContent(ref obj);
             }
-            effectList.Add(effect.GetType().ToString().Replace("Game1.", ""), effect as ImageEffect);
+            effectList.Add(effect.GetType().ToString().Replace("TheGameProject.", ""), effect as ImageEffect);
         }
 
         public void ActivateEffect(string effect)
