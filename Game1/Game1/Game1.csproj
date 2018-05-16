@@ -76,6 +76,9 @@
     <None Include="Content\Load\Menus\TitleMenu.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
+    <None Include="Content\Load\Menus\TestMenu.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
     <Content Include="Icon.ico" />
   </ItemGroup>
   <ItemGroup>

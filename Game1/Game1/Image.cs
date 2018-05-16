@@ -49,7 +49,7 @@ namespace TheGameProject
             }
         }
 
-        public void DeavctivateEffect(string effect)
+        public void DeactivateEffect(string effect)
         {
 
             if (effectList.ContainsKey(effect))
@@ -58,6 +58,39 @@ namespace TheGameProject
                 effectList[effect].UnloadContent();
             }
         }
+
+        public void StoreEffects()
+        {
+            Effects = string.Empty;
+            foreach (var effect in effectList)
+            {
+                if (effect.Value.IsActive)
+                {
+                    Effects += effect.Key + ":";
+                }
+            }
+
+            if (Effects != string.Empty)
+            {
+                Effects.TrimEnd(':');
+            }
+        }
+
+        public void RestoreEffects()
+        {
+            foreach (var effect in effectList)
+            {
+                DeactivateEffect(effect.Key);
+            }
+
+            string[] split = Effects.Split(':');
+
+            foreach (string s in split)
+            {
+                ActivateEffect(s);
+            }
+        }
+
         public Image()
         {
             Path = Text = Effects = string.Empty;
@@ -118,7 +151,7 @@ namespace TheGameProject
         {
             content.Unload();
             foreach (var effect in effectList)
-                DeavctivateEffect(effect.Key);
+                DeactivateEffect(effect.Key);
         }
 
         public void Update(GameTime gameTime)
