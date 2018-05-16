@@ -1,4 +1,7 @@
-﻿using Microsoft.Xna.Framework;
+﻿using System;
+using System.Xml.Serialization;
+using System.IO;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
@@ -7,13 +10,68 @@ namespace TheGameProject
     public class ScreenManager
     {
         private static ScreenManager _instance;
+        [XmlIgnore]
         public Vector2 Dimensions { private set; get; }
+        [XmlIgnore]
         public ContentManager Content { private set; get; }
         SaveManager<GameScreen> xmlGameScreenManager;
         
-        GameScreen currentScreen;
+        GameScreen currentScreen, newScreen;
+        [XmlIgnore]
         public GraphicsDevice GraphicsDevice;
+        [XmlIgnore]
         public SpriteBatch SpriteBatch;
+
+        public Image Image;
+        [XmlIgnore]
+        public bool IsTransitioning { get; private set; }
+
+        public static ScreenManager Instance
+        {
+            get
+            {
+                if (_instance == null)
+                {
+                    SaveManager<ScreenManager> xml = new SaveManager<ScreenManager>();
+                    _instance = xml.Load("Content/Load/ScreenManager.xml");
+                    //_instance = new ScreenManager();
+                }
+                return _instance;
+            }
+        }
+
+        public void ChangeScreens(string screenName)
+        {
+            newScreen = (GameScreen) Activator.CreateInstance(Type.GetType("TheGameProject." + screenName));
+            Image.IsActive = true;
+            Image.FadeEffect.Increase = true;
+            Image.Alpha = 0.0f;
+            IsTransitioning = true;
+        }
+
+        private void Transition(GameTime gameTime)
+        {
+            if (IsTransitioning)
+            {
+                Image.Update(gameTime);
+                if (Image.Alpha == 1.0f)
+                {
+                    currentScreen.UnloadContent();
+                    currentScreen = newScreen;
+                    xmlGameScreenManager.Type = currentScreen.Type;
+                    if (File.Exists("Content/Load/" + currentScreen.XmlPath))
+                    {
+                        currentScreen = xmlGameScreenManager.Load("Content/Load/" + currentScreen.XmlPath);
+                    }
+                    currentScreen.LoadContent();
+                }
+                else if (Image.Alpha == 0.0f)
+                {
+                    Image.IsActive = false;
+                    IsTransitioning = false;
+                }
+            }
+        }
 
         private ScreenManager()
         {
@@ -24,35 +82,32 @@ namespace TheGameProject
             currentScreen = xmlGameScreenManager.Load("Content/Load/SplashScreen.xml");
         }
 
-        public static ScreenManager Instance
-        {
-            get
-            {
-                if (_instance == null)
-                    _instance = new ScreenManager();
-                return _instance;
-            }
-        }
-
         public void LoadContent(ContentManager Content)
         {
             this.Content = new ContentManager(Content.ServiceProvider, "Content");
             currentScreen.LoadContent();
+            Image.LoadContent();
         }
 
         public void UnloadContent()
         {
             currentScreen.UnloadContent();
+            Image.UnloadContent();
         }
 
         public void Update(GameTime gameTime)
         {
             currentScreen.Update(gameTime);
+            Transition(gameTime);
         }
 
         public void Draw(SpriteBatch spriteBatch)
         {
             currentScreen.Draw(spriteBatch);
+            if (IsTransitioning)
+            {
+                Image.Draw(spriteBatch);
+            }
         }
     }
 }

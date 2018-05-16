@@ -8,6 +8,11 @@ namespace TheGameProject
     {
         public Type Type;
 
+        public SaveManager()
+        {
+            Type = typeof(T);
+        }
+
         public T Load(string path)
         {
             T instance;
