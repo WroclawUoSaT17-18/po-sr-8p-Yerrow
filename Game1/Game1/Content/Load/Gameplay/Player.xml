@@ -1,7 +1,8 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?>
 <Player>
   <Image>
-    <Path>Load/Gameplay/Assets/player</Path>
+    <Path>Load/Gameplay/Assets/rin</Path>
+    <Effects>SpriteSheetEffect</Effects>
   </Image>
   <MoveSpeed>100</MoveSpeed>
 </Player>

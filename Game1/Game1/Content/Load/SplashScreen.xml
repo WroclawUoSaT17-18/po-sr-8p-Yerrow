@@ -1,7 +1,7 @@
 ﻿<?xml version="1.0" encoding="utf-8" ?> 
 <SplashScreen>
   <Image>
-    <Path>SplashScreen/bg</Path>
+    <Path>SplashScreen/title_alt</Path>
     <IsActive>false</IsActive>
     <Alpha>1.0</Alpha>
     <Scale>

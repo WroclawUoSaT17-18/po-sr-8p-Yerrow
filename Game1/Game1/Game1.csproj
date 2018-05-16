@@ -53,6 +53,7 @@
     <Compile Include="Player.cs" />
     <Compile Include="ScreenManager.cs" />
     <Compile Include="SplashScreen.cs" />
+    <Compile Include="SpriteSheetEffect.cs" />
     <Compile Include="TestObject.cs" />
     <Compile Include="SaveManager.cs" />
     <Compile Include="Game1.cs" />
