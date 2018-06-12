@@ -39,11 +39,11 @@ namespace TheGameProject
             }
         }
 
-        public void Update(GameTime gameTime)
+        public void Update(GameTime gameTime, ref Player player)
         {
             foreach (Layer l in Layer)
             {
-                l.Update(gameTime);
+                l.Update(gameTime, ref player);
             }
         }
 
