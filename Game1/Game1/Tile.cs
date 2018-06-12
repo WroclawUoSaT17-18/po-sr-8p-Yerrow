@@ -45,9 +45,11 @@ namespace TheGameProject
                 Rectangle playerRect = new Rectangle((int)player.Image.Position.X, (int)player.Image.Position.Y, 
                     (int) player.Image.SourceRect.Width, (int) player.Image.SourceRect.Height);
 
+                Vector2 temporaryPlayerPosition = player.Image.Position - player.Velocity;
+
                 if (playerRect.Intersects(tileRect))
                 {
-                    if (player.Velocity.X < 0)
+                    /*if (player.Velocity.X < 0)
                     {
                         player.Image.Position.X = tileRect.Right;
                     }
@@ -63,7 +65,20 @@ namespace TheGameProject
                     else
                     {
                         player.Image.Position.Y = tileRect.Top - player.Image.SourceRect.Height;
+                    }*/
+
+                    if (player.Velocity.X > 0 && player.Image.Position.X < tileRect.X ||
+                        player.Velocity.X < 0 && player.Image.Position.X > tileRect.X)
+                    {
+                        player.Image.Position.X = temporaryPlayerPosition.X;
                     }
+
+                    if (player.Velocity.Y > 0 && player.Image.Position.Y < tileRect.Y ||
+                        player.Velocity.Y < 0 && player.Image.Position.Y > tileRect.Y)
+                    {
+                        player.Image.Position.Y = temporaryPlayerPosition.Y;
+                    }
+
                     player.Velocity = Vector2.Zero;
                 }
             }

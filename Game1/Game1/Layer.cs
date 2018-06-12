@@ -27,15 +27,16 @@ namespace TheGameProject
         [XmlElement("TileMap")]
         public TileMap Tile;
         public Image Image;
-        public string SolidTiles;
-        private List<Tile> tiles;
+        public string SolidTiles, OverlayTiles;
+        private List<Tile> underlayTiles, overlayTiles;
         private string state;
 
         public Layer()
         {
             Image = new Image();
-            tiles = new List<Tile>();
-            SolidTiles = string.Empty;
+            underlayTiles = new List<Tile>();
+            overlayTiles = new List<Tile>();
+            SolidTiles = OverlayTiles = string.Empty;
         }
 
         public void LoadContent(Vector2 tileDimensions)
@@ -56,7 +57,7 @@ namespace TheGameProject
                         if (!s.Contains("x"))
                         {
                             state = "Passive";
-                            tiles.Add(new Tile());
+                            Tile tile = new Tile();
 
                             string str = s.Replace("[", string.Empty);
                             int value1 = int.Parse(str.Substring(0, str.IndexOf(':')));
@@ -67,9 +68,18 @@ namespace TheGameProject
                                 state = "Solid";
                             }
 
-                            tiles[tiles.Count - 1].LoadContent(position, new Rectangle(
+                            tile.LoadContent(position, new Rectangle(
                                 value1 * (int) tileDimensions.X, value2 * (int) tileDimensions.Y,
                                 (int) tileDimensions.X, (int) tileDimensions.Y), state);
+
+                            if (OverlayTiles.Contains("[" + value1.ToString() + ":" + value2.ToString() + "]"))
+                            {
+                                overlayTiles.Add(tile);
+                            }
+                            else
+                            {
+                                underlayTiles.Add(tile);
+                            }
                         }
                     }
                 }
@@ -83,14 +93,29 @@ namespace TheGameProject
 
         public void Update(GameTime gameTime, ref Player player)
         {
-            foreach (Tile tile in tiles)
+            foreach (Tile tile in underlayTiles)
+            {
+                tile.Update(gameTime, ref player);
+            }
+
+            foreach (Tile tile in overlayTiles)
             {
                 tile.Update(gameTime, ref player);
             }
         }
 
-        public void Draw(SpriteBatch spriteBatch)
+        public void Draw(SpriteBatch spriteBatch, string drawType)
         {
+            List<Tile> tiles;
+            if (drawType == "Underlay")
+            {
+                tiles = underlayTiles;
+            }
+            else
+            {
+                tiles = overlayTiles;
+            }
+
             foreach (Tile tile in tiles)
             {
                 Image.Position = tile.Position;
