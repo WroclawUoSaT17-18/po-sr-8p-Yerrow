@@ -10,7 +10,7 @@ namespace TheGameProject
 {
     public class InputManager
     {
-        KeyboardState currentKeyState, prevKeyState;
+        public KeyboardState currentKeyState, prevKeyState;
 
         private static InputManager instance;
 

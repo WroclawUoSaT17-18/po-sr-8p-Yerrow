@@ -3,6 +3,10 @@
   <Image>
     <Path>Load/Gameplay/Assets/rin</Path>
     <Effects>SpriteSheetEffect</Effects>
+    <Position>
+      <X>448</X>
+      <Y>0</Y>
+    </Position>
   </Image>
   <MoveSpeed>100</MoveSpeed>
 </Player>

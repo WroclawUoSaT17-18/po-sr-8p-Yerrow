@@ -152,6 +152,30 @@
 /processorParam:TextureFormat=Color
 /build:SplashScreen/bg.jpg
 
+#begin SplashScreen/lologo.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:SplashScreen/lologo.png
+
+#begin SplashScreen/monogame_logo.jpg
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:SplashScreen/monogame_logo.jpg
+
 #begin SplashScreen/NO.jpg
 /importer:TextureImporter
 /processor:TextureProcessor
