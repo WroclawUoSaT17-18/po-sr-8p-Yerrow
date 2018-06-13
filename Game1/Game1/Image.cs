@@ -1,14 +1,11 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Xml.Serialization;
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Game1
+namespace TheGameProject
 {
     public class Image
     {
@@ -28,6 +25,7 @@ namespace Game1
         public string Effects;
 
         public FadeEffect FadeEffect;
+        public SpriteSheetEffect SpriteSheetEffect;
 
         void SetEffect<T>(ref T effect)
         {
@@ -39,7 +37,7 @@ namespace Game1
                 var obj = this;
                 (effect as ImageEffect).LoadContent(ref obj);
             }
-            effectList.Add(effect.GetType().ToString().Replace("Game1.", ""), effect as ImageEffect);
+            effectList.Add(effect.GetType().ToString().Replace("TheGameProject.", ""), effect as ImageEffect);
         }
 
         public void ActivateEffect(string effect)
@@ -52,7 +50,7 @@ namespace Game1
             }
         }
 
-        public void DeavctivateEffect(string effect)
+        public void DeactivateEffect(string effect)
         {
 
             if (effectList.ContainsKey(effect))
@@ -61,6 +59,39 @@ namespace Game1
                 effectList[effect].UnloadContent();
             }
         }
+
+        public void StoreEffects()
+        {
+            Effects = string.Empty;
+            foreach (var effect in effectList)
+            {
+                if (effect.Value.IsActive)
+                {
+                    Effects += effect.Key + ":";
+                }
+            }
+
+            if (Effects != string.Empty)
+            {
+                Effects.TrimEnd(':');
+            }
+        }
+
+        public void RestoreEffects()
+        {
+            foreach (var effect in effectList)
+            {
+                DeactivateEffect(effect.Key);
+            }
+
+            string[] split = Effects.Split(':');
+
+            foreach (string s in split)
+            {
+                ActivateEffect(s);
+            }
+        }
+
         public Image()
         {
             Path = Text = Effects = string.Empty;
@@ -108,6 +139,7 @@ namespace Game1
             ScreenManager.Instance.GraphicsDevice.SetRenderTarget(null);
 
             SetEffect<FadeEffect>(ref FadeEffect);
+            SetEffect<SpriteSheetEffect>(ref SpriteSheetEffect);
 
             if (Effects != string.Empty)
             {
@@ -121,7 +153,7 @@ namespace Game1
         {
             content.Unload();
             foreach (var effect in effectList)
-                DeavctivateEffect(effect.Key);
+                DeactivateEffect(effect.Key);
         }
 
         public void Update(GameTime gameTime)

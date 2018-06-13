@@ -4,7 +4,7 @@ using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
 
-namespace Game1
+namespace TheGameProject
 {
     public class GameScreen
     {
@@ -12,9 +12,13 @@ namespace Game1
         [XmlIgnore]
         public Type Type;
 
+        public string XmlPath;
+
         public GameScreen()
         {
             Type = this.GetType();
+            XmlPath = Type.ToString().Replace("TheGameProject.", "") + ".xml";
+            //XmlPath = "Content/Load/" + Type.ToString().Replace("TheGameProject.", "") + ".xml";
         }
 
         public virtual void LoadContent()
@@ -29,6 +33,7 @@ namespace Game1
 
         public virtual void Update(GameTime gameTime)
         {
+            InputManager.Instance.Update();
         }
 
         public virtual void Draw(SpriteBatch spriteBatch)

@@ -2,11 +2,16 @@
 using System.Xml.Serialization;
 using System.IO;
 
-namespace Game1
+namespace TheGameProject
 {
     public class SaveManager<T>
     {
         public Type Type;
+
+        public SaveManager()
+        {
+            Type = typeof(T);
+        }
 
         public T Load(string path)
         {

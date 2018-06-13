@@ -2,8 +2,9 @@
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Content;
 using Microsoft.Xna.Framework.Graphics;
+using Microsoft.Xna.Framework.Input;
 
-namespace Game1
+namespace TheGameProject
 {
     public class SplashScreen : GameScreen
     {
@@ -26,6 +27,9 @@ namespace Game1
         {
             base.Update(gameTime);
             Image.Update(gameTime);
+
+            if(InputManager.Instance.KeyPressed(Keys.Enter, Keys.Z))
+                ScreenManager.Instance.ChangeScreens("TitleScreen");
         }
 
         public override void Draw(SpriteBatch spriteBatch)
