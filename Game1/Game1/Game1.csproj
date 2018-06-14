@@ -72,6 +72,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="ClassDiagram.cd" />
     <None Include="Content\Load\SplashScreen.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </None>
@@ -86,6 +87,7 @@
     </None>
     <None Include="Content\Load\Gameplay\Player.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <SubType>Designer</SubType>
     </None>
     <None Include="Content\Load\Gameplay\Maps\Map1.xml">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
