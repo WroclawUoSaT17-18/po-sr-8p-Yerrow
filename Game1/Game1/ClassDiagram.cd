@@ -1,0 +1,197 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="TheGameProject.FadeEffect">
+    <Position X="1.25" Y="8.25" Width="1.5" />
+    <Members>
+      <Field Name="FadeSpeed" Hidden="true" />
+      <Field Name="Increase" Hidden="true" />
+      <Method Name="LoadContent" Hidden="true" />
+      <Method Name="UnloadContent" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAgAAAQ=</HashCode>
+      <FileName>FadeEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.Game1" Collapsed="true">
+    <Position X="7.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAQAwAAAAAAAAAAAAAAAAACAIAAAAAAAAQ=</HashCode>
+      <FileName>Game1.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.GameplayScreen">
+    <Position X="2.75" Y="4" Width="1.5" />
+    <Members>
+      <Method Name="Draw" Hidden="true" />
+      <Method Name="LoadContent" Hidden="true" />
+      <Method Name="UnloadContent" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAgAAAAAAAAAAAAAAAAABAAAAAAAAAAQ=</HashCode>
+      <FileName>GameplayScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.GameScreen">
+    <Position X="2.75" Y="1.5" Width="1.5" />
+    <Members>
+      <Field Name="Content" Hidden="true" />
+      <Method Name="Draw" Hidden="true" />
+      <Method Name="LoadContent" Hidden="true" />
+      <Field Name="Type" Hidden="true" />
+      <Method Name="UnloadContent" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+      <Field Name="XmlPath" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAgAAAgAAAAAAAAAAAAAAAAQAAQAAAAAAAAQ=</HashCode>
+      <FileName>GameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.Image" Collapsed="true">
+    <Position X="9.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CgYCkAGAAAAgAgIgEAZAAAACEIAAABBAAAMACAAAAAQ=</HashCode>
+      <FileName>Image.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.ImageEffect">
+    <Position X="2.75" Y="6" Width="1.5" />
+    <Members>
+      <Field Name="image" Hidden="true" />
+      <Field Name="IsActive" Hidden="true" />
+      <Method Name="LoadContent" Hidden="true" />
+      <Method Name="UnloadContent" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAAAAEAAAAAAAEAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>ImageEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.InputManager" Collapsed="true">
+    <Position X="11.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQgAAAAAAAAgAAAAAAAAAAAAABAAAAARAAAABBAAAA=</HashCode>
+      <FileName>InputManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.Layer" Collapsed="true">
+    <Position X="13" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACQCEAAgAAAAAkAAAAAAAAAAAAAAABAEAAAAAAAAAQQ=</HashCode>
+      <FileName>Layer.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.Map" Collapsed="true">
+    <Position X="7.75" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAgAAAAAAAAAAAAAAAAAEAAAAAAAAgAQ=</HashCode>
+      <FileName>Map.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.Menu" Collapsed="true">
+    <Position X="9.5" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAmwAAAAQAAACAAABAgAAAAAAAAAAAAgU=</HashCode>
+      <FileName>Menu.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.MenuItem" Collapsed="true">
+    <Position X="11.25" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAgABAAAAAAIAAAAAA=</HashCode>
+      <FileName>MenuItem.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.MenuManager" Collapsed="true">
+    <Position X="13" Y="1.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAIAAAgAAAAAAAAgAAABAAAAAAAAAAQAAAAQ=</HashCode>
+      <FileName>MenuManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.Player" Collapsed="true">
+    <Position X="7.75" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAhAAAAAAAAAAAAAAABAAAAAAAAAEAAQ=</HashCode>
+      <FileName>Player.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.Program" Collapsed="true">
+    <Position X="9.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAAAAAA=</HashCode>
+      <FileName>Program.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.SaveManager&lt;T&gt;" Collapsed="true">
+    <Position X="11.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAgIAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAA=</HashCode>
+      <FileName>SaveManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.ScreenManager" Collapsed="true">
+    <Position X="13" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQEEAAAAgAAAgAAAACAAAIgAABgABABQAAkAAAAAAQ=</HashCode>
+      <FileName>ScreenManager.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.SplashScreen">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <Members>
+      <Method Name="Draw" Hidden="true" />
+      <Method Name="LoadContent" Hidden="true" />
+      <Method Name="UnloadContent" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAgAAAAAAAAAAEAAAABAAAAAAAAAAAAQ=</HashCode>
+      <FileName>SplashScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.SpriteSheetEffect">
+    <Position X="4" Y="8.25" Width="1.5" />
+    <Members>
+      <Field Name="AmountOfFrames" Hidden="true" />
+      <Field Name="CurrentFrame" Hidden="true" />
+      <Field Name="FrameCounter" Hidden="true" />
+      <Property Name="FrameHeight" Hidden="true" />
+      <Property Name="FrameWidth" Hidden="true" />
+      <Method Name="LoadContent" Hidden="true" />
+      <Field Name="OverBounds" Hidden="true" />
+      <Field Name="SwitchFrame" Hidden="true" />
+      <Method Name="UnloadContent" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AASAEAAAAAAAAAACAAAAAABAACCAAAAAAgAAIAAAAAQ=</HashCode>
+      <FileName>SpriteSheetEffect.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.Tile" Collapsed="true">
+    <Position X="7.75" Y="3.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAQAEAAAAAAAAAAgAAAAIAAAAEAAAABEAAAAAAAAAAQ=</HashCode>
+      <FileName>Tile.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="TheGameProject.TitleScreen">
+    <Position X="5" Y="4" Width="1.5" />
+    <Members>
+      <Method Name="Draw" Hidden="true" />
+      <Method Name="LoadContent" Hidden="true" />
+      <Method Name="UnloadContent" Hidden="true" />
+      <Method Name="Update" Hidden="true" />
+    </Members>
+    <TypeIdentifier>
+      <HashCode>AAQQEAAAAAAAAgAAAAAAAAAAAAAAAAAAAAAAAAAAAAQ=</HashCode>
+      <FileName>TitleScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
